@@ -1,0 +1,144 @@
+body, ul, li, p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: blanchedalmond;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.header {
+    background-color: #1d1e20;
+    display: flex;
+    justify-content: space-between; /*Da um espaço entre os itens*/
+    align-items: center; /*Alinha os itens de forma que fiquem centralizados na horizontal*/
+    padding: 20px;
+}
+
+.menu{
+    display: flex;
+}
+
+.menu li {
+    margin-left: 10px;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+    background-color: rgb(49, 49, 49);
+}
+
+/*Flexbox*/
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flex > div {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+/*CSS Grid*/
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 800px; 
+    /*padding 10px para correção de alinhamento*/
+    padding: 10px;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+/*nth-child(n+4) é usado para que a partir do quarto item do grid seja aplicada a seguinte estilização*/
+.grid > div:nth-child(n+4) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.grid > div.anuncio {
+    /*definir em que coluna o anuncio ficará*/
+    grid-column: 1;
+    /*definir qual será o numero de linhas que ele irá ocupar, nesse caso da segunda até a 5 linha*/
+    grid-row: 2/5;
+
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .grid{
+        grid-template-columns: 1fr 1fr;
+    }
+    .grid > div:nth-child(n+4){
+        display: block;
+    }
+    .grid > div.anuncio{
+        grid-column: auto;
+        grid-row: auto;
+        order: -1;
+    }
+}
+
+/*Grid Sidebar*/
+.newgrid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-gap: 20px;
+    max-width: 1000px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.sidebar > div > p {
+    background-color: rgb(82, 82, 82);
+    color:rgb(255, 255, 255);
+}
+
+.sidebar > div {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .newgrid {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        /*para alinhar a sidebar na horizontal*/
+        display: flex;
+        /*para criar um scroll*/
+        overflow: scroll;
+    }
+    .sidebar > div {
+        flex: 1 0 200px;
+        margin: 0 10px;
+    }
+}
+
+.border {
+    border: royalblue solid 2px;
+}
